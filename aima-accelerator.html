@@ -4,92 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIMA Accelerator — We Build You an Entire AI Business for $37</title>
-<meta name="description" content="We build you a complete AI business, send paying clients to your phone, and give you closers who take the calls. You collect $1,500–$2,500 per client, monthly. Just $37.">
+<meta name="description" content="We'll build you an entire AI business, send paying clients straight to your phone, and even give you closers who take the sales calls for you. All for $37.">
 <style>
-  /* ===================== TOKENS ===================== */
   :root{
-    --page:#ececec;         /* outside-column gray (desktop) */
-    --paper:#ffffff;        /* the letter column */
-    --ink:#1a1a1a;
-    --body:#2b2b2b;
-    --muted:#6b6b6b;
-    --line:#e6e6e6;
-    --green:#1eb257;
-    --green-d:#159447;
-    --green-dd:#0f7a3a;
-    --red:#e02424;
-    --red-d:#b91c1c;
-    --hl:#fff14d;           /* highlighter */
-    --blue:#1f6feb;
-    --gold:#f5a623;
-    --col:640px;            /* narrow CF column */
+    --page:#ececec;--paper:#ffffff;--ink:#1a1a1a;--body:#2b2b2b;--muted:#6b6b6b;
+    --line:#e6e6e6;--green:#1eb257;--green-d:#159447;--green-dd:#0f7a3a;
+    --red:#e02424;--red-d:#b91c1c;--hl:#fff14d;--blue:#1f6feb;--gold:#f5a623;--col:640px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--page);
-    color:var(--body);
+  body{margin:0;background:var(--page);color:var(--body);
     font-family:"Helvetica Neue",Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    font-size:19px;
-    line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
+    font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
   img{max-width:100%;display:block}
-
-  /* The centered narrow "letter" — mobile-first (full width), boxed on desktop */
-  .page{
-    max-width:var(--col);
-    margin:0 auto;
-    background:var(--paper);
-    min-height:100vh;
-    box-shadow:0 0 40px rgba(0,0,0,.08);
-  }
+  .page{max-width:var(--col);margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.08)}
   .pad{padding:0 20px}
 
-  /* ===================== STICKY URGENCY BAR ===================== */
-  .urgency{
-    position:sticky;top:0;z-index:50;
-    background:var(--red);
-    color:#fff;
-    text-align:center;
-    padding:9px 14px;
-    font-size:14px;font-weight:700;line-height:1.4;
-    box-shadow:0 2px 10px rgba(0,0,0,.22);
-  }
-  .urgency .count{
-    display:inline-block;background:rgba(0,0,0,.28);border-radius:5px;
-    padding:1px 8px;font-variant-numeric:tabular-nums;font-weight:800;margin-left:2px;
-  }
-  .urgency b{color:#ffe14d}
+  .urgency{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;text-align:center;
+    padding:10px 14px;font-size:14px;font-weight:700;line-height:1.45;box-shadow:0 2px 10px rgba(0,0,0,.22)}
+  .urgency a{color:#ffe14d;text-decoration:underline;font-weight:800}
 
-  /* ===================== HEADLINE ===================== */
   .top{padding:26px 20px 8px;text-align:center}
-  .pre{
-    color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.05em;
-    font-size:13px;margin:0 0 14px;
-  }
-  h1{
-    color:var(--ink);
-    font-size:31px;line-height:1.2;font-weight:800;letter-spacing:-.01em;
-    margin:0 0 16px;
-  }
+  .pre{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:13px;margin:0 0 14px}
+  h1{color:var(--ink);font-size:31px;line-height:1.2;font-weight:800;letter-spacing:-.01em;margin:0 0 16px}
   .hl{background:linear-gradient(180deg,transparent 55%,var(--hl) 55%);padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   .subhead{font-size:20px;color:var(--body);margin:0 0 6px}
   .subhead b{color:var(--ink)}
   .price-punch{font-size:24px;font-weight:800;color:var(--ink);margin:16px 0 4px}
   .aside{font-style:italic;color:var(--muted);font-size:17px;margin:0 0 6px}
 
-  /* ===================== "SCREENSHOT" MOCKS ===================== */
-  .shot{
-    border:1px solid var(--line);border-radius:12px;overflow:hidden;
-    box-shadow:0 8px 22px rgba(0,0,0,.10);margin:18px 0;background:#fff;
-  }
-  .shot .bar{
-    background:#0e1b2c;color:#cfe0f2;font-size:12px;padding:8px 12px;
-    display:flex;align-items:center;gap:6px;
-  }
+  .shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.10);margin:18px 0;background:#fff}
+  .shot .bar{background:#0e1b2c;color:#cfe0f2;font-size:12px;padding:8px 12px;display:flex;align-items:center;gap:6px}
   .shot .dot{width:10px;height:10px;border-radius:50%;background:#ff5f57;flex:none}
   .shot .dot.y{background:#febc2e}.shot .dot.g{background:#28c840}
   .shot .bar .t{margin-left:8px;opacity:.75}
@@ -98,120 +43,76 @@
   .shot .sm{font-size:13px;color:#95a7ba;margin-top:8px}
   .shot .cap{font-size:12px;color:var(--muted);text-align:center;padding:10px 12px;background:#fafafa;font-style:italic}
 
-  /* ===================== CTA ===================== */
-  .cta-wrap{padding:8px 16px 4px;text-align:center}
-  .cta{
-    display:block;width:100%;max-width:520px;margin:0 auto;
-    background:linear-gradient(180deg,#26c765 0%,var(--green) 45%,var(--green-d) 100%);
-    color:#fff;text-decoration:none;
-    font-weight:900;font-size:20px;line-height:1.25;
-    padding:18px 20px;border-radius:12px;border:0;cursor:pointer;
-    box-shadow:0 8px 0 var(--green-dd), 0 14px 24px rgba(15,122,58,.35);
-    text-shadow:0 1px 1px rgba(0,0,0,.18);
-    transition:transform .08s ease, box-shadow .08s ease;
-    animation:pulse 2.2s ease-in-out infinite;
-  }
+  .cta-wrap{padding:14px 16px 6px;text-align:center}
+  .cta{display:block;width:100%;max-width:540px;margin:0 auto;
+    background:linear-gradient(180deg,#26c765 0%,var(--green) 45%,var(--green-d) 100%);color:#fff;text-decoration:none;
+    font-weight:900;font-size:19px;line-height:1.25;padding:18px 20px;border-radius:12px;border:0;cursor:pointer;
+    box-shadow:0 8px 0 var(--green-dd),0 14px 24px rgba(15,122,58,.35);text-shadow:0 1px 1px rgba(0,0,0,.18);
+    transition:transform .08s ease,box-shadow .08s ease;animation:pulse 2.2s ease-in-out infinite}
   .cta:active{transform:translateY(4px);box-shadow:0 4px 0 var(--green-dd),0 8px 14px rgba(15,122,58,.3)}
   .cta small{display:block;font-weight:700;font-size:13px;opacity:.92;margin-top:4px}
   @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
-  .cta-sub{font-size:13px;color:var(--muted);margin:12px 0 2px}
-  .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
-  .rating{font-size:13px;color:var(--muted);margin-top:2px}
-  .pays{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:12px 0 2px}
-  .pays span{
-    font-size:11px;font-weight:800;color:#555;background:#f1f1f1;border:1px solid #e2e2e2;
-    border-radius:5px;padding:4px 9px;letter-spacing:.02em;
-  }
 
-  /* ===================== BODY SECTIONS ===================== */
   section{padding:30px 20px}
   .rule{height:1px;background:var(--line);border:0;margin:0 20px}
-  .eyebrow{
-    text-align:center;color:var(--green-d);font-weight:800;text-transform:uppercase;
-    letter-spacing:.07em;font-size:12px;margin:0 0 6px;
-  }
+  .eyebrow{text-align:center;color:var(--green-d);font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:12px;margin:0 0 6px}
   h2{font-size:25px;line-height:1.25;font-weight:800;color:var(--ink);text-align:center;margin:0 0 18px}
   h3{font-size:20px;font-weight:800;color:var(--ink);margin:0 0 8px}
   p{margin:0 0 16px}
   p b,li b{color:var(--ink)}
   .lead{font-size:20px;color:var(--ink)}
 
-  .callout{
-    background:#fffbe6;border:1px solid #ffe58a;border-left:5px solid var(--gold);
-    border-radius:8px;padding:14px 16px;margin:18px 0;color:var(--ink);font-weight:600;
-  }
+  .callout{background:#fffbe6;border:1px solid #ffe58a;border-left:5px solid var(--gold);border-radius:8px;
+    padding:14px 16px;margin:18px 0;color:var(--ink);font-weight:600}
 
-  /* two options block */
-  .opt{
-    border:2px solid var(--line);border-radius:12px;padding:16px 16px 14px;margin:12px 0;background:#fafafa;
-  }
-  .opt .tag{
-    display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:12px;
-    padding:4px 11px;border-radius:999px;letter-spacing:.03em;margin-bottom:8px;
-  }
+  .opt{border:2px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;background:#fafafa}
+  .opt .tag{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:12px;padding:4px 11px;border-radius:999px;letter-spacing:.03em;margin-bottom:8px}
   .opt.b .tag{background:var(--green)}
   .opt p{margin:0;font-size:17px}
 
-  /* stat trio (stacks on mobile) */
   .stats{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
   .stat{flex:1 1 100%;background:#0e1b2c;color:#fff;border-radius:12px;padding:16px;text-align:center}
   .stat .n{font-size:34px;font-weight:900;color:#3ddc84;line-height:1}
   .stat .l{font-size:14px;color:#a8b8c8;margin-top:5px}
+  .fourpct{text-align:center;font-size:26px;font-weight:900;color:var(--ink);margin:6px 0 16px}
 
-  /* steps */
   .step{border:1px solid var(--line);border-radius:12px;padding:18px;margin:0 0 14px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
-  .step .n{
-    display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;
-    font-weight:900;align-items:center;justify-content:center;font-size:17px;margin-bottom:10px;
-  }
-  .badge-do{display:inline-block;background:#eafaf0;color:#0f7a3a;font-weight:800;font-size:11px;
-    padding:3px 9px;border-radius:999px;margin-left:6px;vertical-align:2px}
+  .step .n{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;align-items:center;justify-content:center;font-size:17px;margin-bottom:10px}
+  .step h3 span.you{display:inline-block;background:#eafaf0;color:#0f7a3a;font-weight:800;font-size:12px;padding:3px 9px;border-radius:999px;margin-left:6px;vertical-align:2px}
   .abopt{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:17px}
   .abopt b{color:var(--green-d)}
   .abopt p{margin:0 0 10px}.abopt p:last-child{margin:0}
 
-  /* testimonials */
-  .tcard{border:1px solid var(--line);border-radius:12px;padding:16px 16px;margin:0 0 14px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
-  .tcard .who{font-weight:800;color:var(--ink)}
-  .tcard .meta{font-size:13px;color:var(--muted);margin:2px 0 8px}
-  .tcard .q{font-style:italic;color:var(--ink);font-size:17px}
+  .tcard{border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 14px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+  .tcard .stars{color:var(--gold);letter-spacing:2px;font-size:15px;margin-bottom:6px}
+  .tcard .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+  .tcard .narr{font-size:16px;color:var(--body);margin:0 0 10px}
+  .tcard .q{font-style:italic;color:var(--ink);font-size:17px;margin:0}
   .tcard .q:before{content:"“";color:var(--gold);font-weight:900;font-size:24px;line-height:0;margin-right:2px}
-  .payrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .payrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0}
   .payrow .p{background:#0e1b2c;color:#3ddc84;font-weight:800;font-size:18px;padding:10px 16px;border-radius:10px}
 
-  /* checklist */
   .checks{list-style:none;padding:0;margin:0}
-  .checks li{position:relative;padding:12px 0 12px 40px;border-bottom:1px solid var(--line);font-size:17px}
+  .checks li{position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--line);font-size:17px}
   .checks li:last-child{border-bottom:0}
-  .checks li:before{
-    content:"✓";position:absolute;left:4px;top:12px;width:26px;height:26px;border-radius:50%;
-    background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px;
-  }
+  .checks li:before{content:"✓";position:absolute;left:4px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px}
 
-  /* guarantee */
   .guar{background:#0d2417;border:2px solid var(--green);border-radius:16px;padding:26px 20px;text-align:center;color:#dff3e6}
-  .seal{
-    width:104px;height:104px;border-radius:50%;margin:0 auto 14px;
-    background:radial-gradient(circle at 50% 38%,#27d968,#0f7a3a);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    color:#fff;font-weight:900;border:5px solid rgba(255,255,255,.22);box-shadow:0 10px 24px rgba(15,122,58,.5);
-  }
+  .seal{width:104px;height:104px;border-radius:50%;margin:0 auto 14px;background:radial-gradient(circle at 50% 38%,#27d968,#0f7a3a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:900;border:5px solid rgba(255,255,255,.22);box-shadow:0 10px 24px rgba(15,122,58,.5)}
   .seal .d{font-size:30px;line-height:1}.seal .u{font-size:12px;letter-spacing:.14em;margin-top:2px}
   .guar h2{color:#fff;margin-bottom:12px}
   .guar p{color:#c7e6d3}
   .guar a{color:#8ff0b4}
   .guar .em{color:#ffe14d;font-weight:800}
 
-  /* binary choice — stacked cards */
   .ch{border-radius:12px;padding:18px;margin:0 0 14px}
   .ch.bad{background:#fdf1f0;border:1px solid #f3cfcb}
   .ch.good{background:#eef9f1;border:1px solid #c9e9d3}
   .ch h3{display:flex;align-items:center;gap:8px}
   .ch.bad h3{color:var(--red-d)}
   .ch.good h3{color:var(--green-dd)}
-  .ch p{margin:0;font-size:17px}
+  .ch p{font-size:17px}.ch p:last-child{margin-bottom:0}
 
-  /* FAQ */
   details{border:1px solid var(--line);border-radius:10px;margin:0 0 10px;overflow:hidden;background:#fff}
   summary{cursor:pointer;list-style:none;padding:15px 46px 15px 16px;position:relative;font-weight:800;color:var(--ink);font-size:17px}
   summary::-webkit-details-marker{display:none}
@@ -219,376 +120,363 @@
   details[open] summary:after{content:"–"}
   .ans{padding:0 16px 16px;color:var(--body);font-size:16px}
 
-  /* recap */
   .recap{list-style:none;padding:0;margin:0}
   .recap li{position:relative;padding:8px 0 8px 30px;color:var(--ink);font-size:17px}
   .recap li:before{content:"→";position:absolute;left:0;top:8px;color:var(--green);font-weight:900}
   .final{text-align:center;font-weight:900;font-size:21px;color:var(--ink);margin:18px 0 2px}
 
-  /* footer */
   footer{background:#0e1b2c;color:#9fb0c2;padding:30px 20px 44px;font-size:13px;line-height:1.6}
   footer .cc{text-align:center;color:#7d8fa2;margin-bottom:16px}
   footer h4{color:#cfe0f2;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;margin:16px 0 6px}
   footer p{color:#9fb0c2;margin:0 0 12px;font-size:13px}
   footer a{color:#cfe0f2}
 
-  /* ===================== DESKTOP (still narrow column) ===================== */
-  @media (min-width:660px){
-    h1{font-size:36px}
-    h2{font-size:27px}
-    body{font-size:19px}
-  }
+  @media (min-width:660px){h1{font-size:36px}h2{font-size:27px}}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- URGENCY BAR -->
+  <!-- [TOP BAR - STICKY] -->
   <div class="urgency">
-    Due to the personalized nature of this service, we only accept <b>50 setups/month.</b>
-    August is <b>nearly full</b> · closes in <span class="count" id="cd">14:59</span>
+    Due to the personalized nature of this service, we can only accept 50 new setups each month.
+    <a href="https://www.aima-systems.com">Spots For August Are Nearly Taken - Reserve Yours Now</a>
   </div>
 
-  <!-- HEADLINE -->
+  <!-- [HEADLINE SECTION] -->
   <div class="top">
-    <p class="pre">The AIMA Accelerator · Done-For-You AI Business</p>
+    <p class="pre">The AIMA Accelerator</p>
     <h1>We'll Build You an Entire AI Business, Send Paying Clients Straight to Your Phone, and Even Give You <span class="hl">Closers Who Take the Sales Calls For You.</span></h1>
-    <p class="subhead">All you do is collect <b>$1,500–$2,500 per client, every single month.</b> We handle everything else.</p>
+    <p class="subhead">All you do is collect <b>$1,500-$2,500 per client, every single month.</b> We handle everything else.</p>
     <p class="price-punch">And the whole thing costs <span class="hl">$37.</span></p>
     <p class="aside">Yeah, I know how that sounds. Let me explain.</p>
   </div>
 
-  <!-- HERO PROOF SHOT -->
-  <div class="pad">
-    <div class="shot">
-      <div class="bar"><span class="dot"></span><span class="dot y"></span><span class="dot g"></span><span class="t">agency-dashboard · February</span></div>
-      <div class="body">
-        <span class="big">$712,480</span>
-        <div class="sm">Revenue · single month · same system we build for you</div>
-      </div>
-      <div class="cap">My real dashboard. This is the business I'm about to hand you.</div>
-    </div>
-  </div>
-
-  <!-- CTA 1 -->
   <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      YES — BUILD MY AI BUSINESS FOR $37
-      <small>Backed By A 180-Day Money-Back Guarantee ›</small>
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
     </a>
-    <div class="stars" style="margin-top:12px">★★★★★</div>
-    <div class="rating">Rated 4.9/5 by 3,000+ students</div>
-    <div class="pays"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>STRIPE</span><span>PAYPAL</span></div>
-    <div class="cta-sub">🔒 Secure checkout · Instant access</div>
   </div>
 
   <hr class="rule">
 
-  <!-- SECTION 1: OFFER IN 60 SEC -->
+  <!-- [SECTION 1: THE OFFER IN 60 SECONDS] -->
   <section>
     <p class="eyebrow">The Offer In 60 Seconds</p>
-    <h2>Before I tell you who I am, here's exactly what this is.</h2>
+    <p>Before I tell you who I am or why this works, let me just tell you what this is. Plain and simple.</p>
     <p class="lead"><b>You pay $37.</b></p>
-    <p>My team and I build you a complete AI business. All the tech. All the setup. Everything. <b>You don't touch any of it.</b></p>
-    <p>Then we set up an automated email system that reaches out to thousands of business owners on your behalf. You don't write them. You don't send them. It runs on its own.</p>
-    <p>Within three weeks, interested business owners start booking calls with you. The calls just show up on your calendar. <b>Automatically.</b></p>
-    <div class="callout">Here's the part that surprises most people: you don't even have to take those calls yourself.</div>
+    <p>My team and I build you a complete AI business. All the tech. All the setup. Everything. You don't touch any of it.</p>
+    <p>Then we set up an automated email system that reaches out to thousands of business owners on your behalf. You don't write the emails. You don't send them. It runs on its own.</p>
+    <p>Within three weeks, interested business owners start booking calls with you. They got the email, they need help with AI for their company, and they booked a time to talk to you. The calls just show up on your calendar. Automatically.</p>
+    <div class="callout">Now here's the part that surprises most people.<br>You don't even have to take those calls yourself.</div>
+    <p>We give you two options.</p>
     <div class="opt">
-      <span class="tag">OPTION 1</span>
-      <p>Take the calls yourself with the word-for-word script we hand you. Just read it. Even people who've never sold anything are closing deals with it.</p>
+      <span class="tag">OPTION ONE</span>
+      <p>Take the calls yourself using the word-for-word script we hand you. Just read it. It's simple. Even people who've never sold anything in their lives are closing deals with this script.</p>
     </div>
     <div class="opt b">
-      <span class="tag">OPTION 2</span>
-      <p>We set you up with professional closers who take the calls for you. They use our script and close the deals. You pay them just 10%. <b>You never pick up the phone.</b></p>
+      <span class="tag">OPTION TWO</span>
+      <p>We set you up with professional closers who take the calls for you. They use our script, they close the deals, and you pay them 10% of whatever they close. You never even pick up the phone.</p>
     </div>
-    <p>Either way, those clients pay you <b>$1,500–$2,500 every single month</b> — and they keep paying, because the AI service delivers real results. They don't want to leave.</p>
-    <p><b>No tech skills. No ad budget. No experience. No selling if you don't want to.</b> If you don't like what we build, get your $37 back — 180 days, no questions asked.</p>
+    <p>Either way, those clients pay you $1,500-$2,500 every single month. And they keep paying month after month, because the AI service actually delivers real results for their business. They don't want to leave.</p>
+    <p>No tech skills needed. No ad budget. No experience. No selling if you don't want to.</p>
+    <p><b>That's the whole thing.</b></p>
+    <p>If you don't like what we build for you, get your $37 back. You've got 180 days. No questions asked.</p>
   </section>
-
-  <!-- CTA 2 -->
-  <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      GET INSTANT ACCESS — $37
-      <small>180-Day, No-Questions-Asked Refund ›</small>
-    </a>
-  </div>
 
   <hr class="rule">
 
-  <!-- SECTION 2: WHO AM I -->
+  <!-- [SECTION 2: WHO AM I] -->
   <section>
     <p class="eyebrow">Who Am I</p>
-    <h2>Why should you believe any of this?</h2>
+    <p>OK, so who am I and why should you believe any of this?</p>
     <p class="lead">My name is <b>Edward Air.</b> I run an AI marketing agency.</p>
-    <p>That dashboard above? <b>Over $700,000 in a single month</b> — from the same kind of AI business I'm about to build for you. I'm not showing you that to brag. I'm showing you because the person building your business has actually built one that works. A big one.</p>
-    <p>I've generated <b>over $6 million in 2025</b> using these exact systems. The same emails. The same scripts. The same fulfillment. Everything I install into your business is what I use in mine — every single day.</p>
-    <p>I spent five years and a lot of painful mistakes figuring out what works, burning money on useless tools, rewriting emails a hundred times until they got responses. <b>You don't have to do any of that. I already did it — and now I'm handing it to you. For $37.</b></p>
-  </section>
-
-  <hr class="rule">
-
-  <!-- SECTION 3: PROBLEM -->
-  <section>
-    <p class="eyebrow">Let's Be Honest</p>
-    <h2>How long have you been thinking about starting something on the side?</h2>
-    <p>Maybe you've bought a course or two. Watched a hundred YouTube videos. And where are you right now? <b>Same spot. Same income. Same routine.</b></p>
-    <p>It's not because you're lazy. It's because everything out there expects <b>YOU</b> to figure it out. They sell you 47 hours of video and say "good luck." They leave you to build the tech, the systems, the client-finding, the selling — all from scratch.</p>
-    <p>And after three months of struggling with stuff you've never done, you've got nothing but a lighter bank account and that sick feeling you wasted your time. <b>Again.</b></p>
-    <p>I've been there. Before my agency took off I sat in my apartment with <b>seventeen browser tabs open, three half-finished programs, and zero clients.</b> I'd spent thousands and made nothing.</p>
-    <p>So I built this differently. I don't give you a course and wish you luck. <b>I build the whole thing for you and hand it over ready to go.</b> The hardest part of starting isn't the selling — it's the setup. And I just removed it completely.</p>
-  </section>
-
-  <hr class="rule">
-
-  <!-- SECTION 4: WHY NOW -->
-  <section>
-    <p class="eyebrow">Why AI · Why Now</p>
-    <h2>Here's a number that should get your attention.</h2>
-    <p><i>Forbes</i> reported that 90% of businesses want to use AI. 70% have looked into it. But only <b>4% have actually done anything about it.</b></p>
-    <div class="stats">
-      <div class="stat"><div class="n">90%</div><div class="l">want to use AI</div></div>
-      <div class="stat"><div class="n">70%</div><div class="l">have looked into it</div></div>
-      <div class="stat"><div class="n">4%</div><div class="l">have actually done it</div></div>
+    <div class="shot">
+      <div class="bar"><span class="dot"></span><span class="dot y"></span><span class="dot g"></span><span class="t">agency-dashboard · February</span></div>
+      <div class="body"><span class="big">$700,000+</span><div class="sm">Single month · from the same kind of AI business I'm about to build for you</div></div>
+      <div class="cap">[ SCREENSHOT: Dashboard showing $700K+ month ]</div>
     </div>
-    <p>That's <b>millions of business owners</b> who want AI but don't know how to get it. They just need someone to say "I'll set this up for you." That's what your clients pay you for — and you don't have to be an expert, because <b>AI does 90% of the work.</b> You adjust a few things using our simple instructions.</p>
-    <p>The results are real, so clients stay 6, 12 months, longer. Compare that to old-school agencies where <b>85% of clients quit within 90 days.</b> With AI, clients stay — that's recurring revenue, compounding, month after month.</p>
-    <p>We're in the early innings. The people who get set up <b>now</b> lock in clients before the market fills. Every month you wait, more competition enters. <b>This window won't stay open forever.</b></p>
+    <p>That's my dashboard from February. Over $700,000 in a single month. From the same kind of AI business I'm about to build for you.</p>
+    <p>I'm not showing you that to brag. I'm showing you that because you need to know - the person who's going to build your business has actually built one that works. A big one.</p>
+    <p>I've generated over $6 million in revenue in 2025 using these exact systems. The same outbound emails. The same scripts. The same fulfillment. Everything I'm going to install into your business is what I use in mine. Every single day.</p>
+    <p>Now, I spent five years and a lot of painful mistakes building all of this. Figuring out what works. Testing what doesn't. Burning through money on tools that were useless. Rewriting emails a hundred times until they actually got responses.</p>
+    <p>You don't have to do any of that. I already did it. And now I'm just going to hand it to you.</p>
+    <p class="lead"><b>For $37.</b></p>
   </section>
-
-  <!-- CTA 3 -->
-  <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      START MY AI BUSINESS — $37
-      <small>Only 50 setups this month ›</small>
-    </a>
-  </div>
 
   <hr class="rule">
 
-  <!-- SECTION 5: HOW IT WORKS -->
+  <!-- [SECTION 3: THE PROBLEM] -->
   <section>
-    <p class="eyebrow">How It Works</p>
-    <h2>Exactly what happens when you join. No surprises.</h2>
+    <p class="eyebrow">The Problem</p>
+    <p>Let me ask you something. And be honest with yourself.</p>
+    <p class="lead">How long have you been thinking about starting something on the side?</p>
+    <p>Maybe you've looked into it. Maybe you've bought a course or two. Maybe you've watched a hundred YouTube videos about how to make money online.</p>
+    <p>And where are you right now? Same spot. Same income. Same routine.</p>
+    <p>It's not because you're lazy. It's not because you don't have what it takes. I know you do, because you're still here looking for the right thing.</p>
+    <p>The problem is that everything out there expects YOU to figure it out.</p>
+    <p>They sell you a course with 47 hours of video and say "good luck." They give you a bunch of information and leave you to build the whole thing from scratch. The tech. The systems. The client finding. The selling. The delivering.</p>
+    <p>And after three months of struggling with stuff you've never done before, you've got nothing to show for it except a lighter bank account and that sick feeling that you wasted your time. Again.</p>
+    <p>I know because I've been there. Before my agency took off, I sat in my apartment with seventeen browser tabs open, three half-finished programs on my desktop, and zero clients. I'd spent thousands and made nothing.</p>
+    <p>That's why I built this differently.</p>
+    <p>I don't give you a course and wish you luck. I build the whole thing for you and hand it to you ready to go.</p>
+    <p>Because the hardest part of starting a business isn't the selling. It's the setup. And I just removed it completely.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- [SECTION 4: WHY AI - WHY NOW] -->
+  <section>
+    <p class="eyebrow">Why AI - Why Now</p>
+    <p>Now, why AI? Why is this the business to start right now?</p>
+    <p>Here's a number that should get your attention.</p>
+    <p>Forbes reported that 90% of businesses want to use AI. 70% have looked into it. But only 4% have actually done anything about it.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">90%</div><div class="l">of businesses want to use AI</div></div>
+      <div class="stat"><div class="n">70%</div><div class="l">have looked into it</div></div>
+      <div class="stat"><div class="n">4%</div><div class="l">have actually done anything about it</div></div>
+    </div>
+    <p class="fourpct">Four percent.</p>
+    <p>That means there are millions of business owners out there right now who want AI but don't know how to get it. They need someone to walk in and say "I'll set this up for you."</p>
+    <p>That's what your clients will be paying you for. Setting up AI tools that help their business run better. And here's the thing - you don't have to be an AI expert to do this, because we give you plug-and-play systems where AI does 90% of the work. You just adjust a few things for each client using our simple instructions.</p>
+    <p>The results are real and measurable. That's why clients stay for 6 months, 12 months, even longer. Compare that to old-school marketing agencies where 85% of clients quit within 90 days because the results are mediocre.</p>
+    <p>With AI, clients stay. That means recurring revenue. Month after month. Compounding.</p>
+    <p>And right now, in 2026, we're in the early stages. The people who get set up now are locking in clients before the market fills up. Every month you wait, more competition enters the space.</p>
+    <p><b>This window won't stay open forever.</b></p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- [SECTION 5: HOW IT WORKS - STEP BY STEP] -->
+  <section>
+    <p class="eyebrow">How It Works - Step By Step</p>
+    <p>Here's exactly what happens when you join. Step by step. No surprises.</p>
 
     <div class="step">
       <div class="n">1</div>
-      <h3>We Build Your Business <span class="badge-do">You Do Nothing</span></h3>
-      <p>My team builds your entire AI business from scratch — tech, infrastructure, all of it — in about 48 hours. Meanwhile you go through the training: about 40 minutes per module. Short and simple.</p>
+      <h3>We Build Your Business <span class="you">You Do Nothing</span></h3>
+      <p>My team builds your entire AI business from scratch. The tech setup, the infrastructure, all of it. You don't need to understand any of it. We do it all.</p>
+      <p style="margin-bottom:0">This takes us about 48 hours. During that time, you go through the training material - about 40 minutes per module. It's short, simple, and tells you everything you need to know about how the business works.</p>
     </div>
+
     <div class="step">
       <div class="n">2</div>
-      <h3>We Turn On the Emails <span class="badge-do">You Still Do Nothing</span></h3>
-      <p>We set up an automated system that emails thousands of business owners on your behalf. You don't write or send anything. There's a two-week warm-up — that's just how email works, you can't skip it. Just wait.</p>
+      <h3>We Turn On the Automated Emails <span class="you">You Still Do Nothing</span></h3>
+      <p>We set up an automated email system that sends messages to business owners on your behalf. Thousands of them.</p>
+      <p>You don't write the emails. You don't send them. You don't manage any lists. The system runs on its own.</p>
+      <p style="margin-bottom:0">There's a two-week warm-up period for the email system. That's just how email technology works - you can't skip it. During those two weeks, you don't need to do anything. Just wait.</p>
     </div>
+
     <div class="step">
       <div class="n">3</div>
-      <h3>Clients Book Calls <span class="badge-do">You Get Paid</span></h3>
-      <p>The emails go live. Interested owners click and book a time on your calendar automatically. We add email + text reminders so they show up — my own agency runs a 90%+ show rate.</p>
+      <h3>Clients Start Booking Calls <span class="you">You Start Getting Paid</span></h3>
+      <p>After the warm-up, the emails go live. Business owners who are interested click a link in the email and book a time to talk to you. Those calls show up on your calendar automatically.</p>
+      <p>We also set up email and text reminders so your prospects actually show up. In my own agency, we have a 90%+ show rate. You'll have the same system.</p>
+      <p style="margin-bottom:0">Now, when those calls come in, you've got two options:</p>
       <div class="abopt">
-        <p><b>Option A —</b> Take the calls yourself with the word-for-word script. People who've never sold anything are closing with it.</p>
-        <p><b>Option B —</b> Hire a closer who takes the calls for you. They close 40%+ using our script. Pay them 10% — on a $2,000/mo client that's $200, you keep $1,800.</p>
+        <p><b>Option A:</b> Take the calls yourself. We give you a word-for-word script. The exact words to say, the exact order to say them, how to handle objections - it's all written out for you. You just follow it. People who've never sold anything in their lives are closing deals with this script.</p>
+        <p><b>Option B:</b> Don't take any calls. We show you how to hire professional closers who take the calls for you. They use our script. They close at a 40%+ rate. You pay them 10% of the deal. On a $2,000/month client, that's $200. You keep $1,800.</p>
       </div>
-      <p style="margin:12px 0 0">Either way, clients sign at <b>$1,500–$2,500/month on a 6-month minimum</b> — and they stay, because it works.</p>
+      <p style="margin:12px 0 0">Either way, clients sign up at $1,500-$2,500 per month. With a 6-month minimum contract. And they stick around because the AI service works.</p>
+      <p style="margin:10px 0 0"><b>That's it. That's the whole business.</b></p>
     </div>
   </section>
 
   <hr class="rule">
 
-  <!-- SECTION 6: RESULTS -->
+  <!-- [SECTION 6: REAL RESULTS FROM REAL PEOPLE] -->
   <section>
-    <p class="eyebrow">Real Results</p>
-    <h2>Don't take my word for it.</h2>
+    <p class="eyebrow">Real Results From Real People</p>
+    <p>Don't take my word for it. Here's what's actually happening for people who joined.</p>
 
     <div class="tcard">
       <div class="stars">★★★★★</div>
-      <div class="who">Jordan Reeves</div>
-      <div class="meta">Zero experience → $4,000/month deal in 3 weeks</div>
-      <p class="q">To be honest, before I would have been scared to charge somebody this much — but you guys have given me so much confidence to deliver.”</p>
+      <div class="lbl">[ Student Screenshot: Jordan Reeves - $4,000/month deal ]</div>
+      <p class="narr">Jordan had zero experience. We built his business. Three weeks later he closed a $4,000/month client. His words:</p>
+      <p class="q">To be honest before I would have been scared to charge somebody this much but you guys have given me so much confidence to deliver.”</p>
     </div>
+
     <div class="tcard">
       <div class="stars">★★★★★</div>
-      <div class="who">Jake M.</div>
-      <div class="meta">11 calls booked in one week · closed 3</div>
+      <div class="lbl">[ Student Screenshot: Jake/Mike iMessage - 11 calls booked, closed 3 ]</div>
+      <p class="narr">This guy had 11 sales calls booked in a single week. Closed 3 of them. His message:</p>
       <p class="q">Bro the system you set me up with is actually insane.”</p>
     </div>
+
     <div class="tcard">
       <div class="stars">★★★★★</div>
-      <div class="who">Trevor Allen</div>
-      <div class="meta">Spent $7,000 on courses before finding us</div>
-      <p class="q">I swear your $37 accelerator is better than the $7K programs I've joined.”</p>
+      <div class="lbl">[ Student Screenshot: Trevor Allen email ]</div>
+      <p class="narr">Trevor had spent $7,000 on courses before he found us. After joining for $37, he wrote:</p>
+      <p class="q">I swear your $37 accelerator is better than $7K programs I've joined.”</p>
     </div>
 
     <div class="shot">
-      <div class="bar"><span class="dot"></span><span class="dot y"></span><span class="dot g"></span><span class="t">stripe · student payments</span></div>
+      <div class="bar"><span class="dot"></span><span class="dot y"></span><span class="dot g"></span><span class="t">[ Student Screenshots: Stripe payments ]</span></div>
       <div class="body" style="background:linear-gradient(180deg,#0d2417,#0e1b2c);padding:20px 16px">
         <div class="payrow"><div class="p">$3,000</div><div class="p">€2,500</div><div class="p">£2,142.50</div></div>
-        <div class="sm" style="margin-top:12px">Different countries. Different currencies. Same system.</div>
       </div>
-      <div class="cap">Real payments from real students who'd never run a business before.</div>
+      <div class="cap">These are real payments from real students. Different countries, different currencies, same system.</div>
     </div>
+
+    <p>These aren't marketing geniuses. They're regular people who had never run a business before. We built it. They showed up. And now they're getting paid every month.</p>
   </section>
 
-  <!-- CTA 4 -->
   <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      YES — I WANT THIS FOR $37
-      <small>180-Day Money-Back Guarantee ›</small>
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
     </a>
   </div>
 
   <hr class="rule">
 
-  <!-- SECTION 7: THE $37 QUESTION -->
+  <!-- [SECTION 7: THE $37 QUESTION] -->
   <section>
     <p class="eyebrow">The $37 Question</p>
-    <h2>"Why is this only $37? What's the catch?"</h2>
+    <p>I know what you're thinking. "Why is this only $37? What's the catch?"</p>
     <p>No catch. Here's the honest answer.</p>
-    <h3>Reason 1 — It barely costs us to build yours.</h3>
-    <p>Five years in, we've standardized everything and AI does the heavy lifting on our end too. What used to take weeks is now systematized. The $37 isn't me selling myself short — it's what it actually costs us to deliver.</p>
-    <h3 style="margin-top:20px">Reason 2 — I'm playing a long game.</h3>
-    <p>Get driven people past the startup barrier and they succeed. So I remove that barrier for $37. When you're consistently doing $50K+ months, you'll get an invite to apply for my <b>Elite Private Circle</b> — a five-figure, top-1% room. But you earn your way in first. When you win, we both win later.</p>
-    <div class="callout">Other costs? A domain, email inboxes and a CRM — <b>$220–$440/month</b>. At $220 you book 5–10 calls/week; at $440, 20–30/week. Your <b>first client covers it with money left over. Your second is pure profit.</b> No hidden fees.</div>
+    <h3>Reason 1: It doesn't cost us much to build yours.</h3>
+    <p>We've been doing this for five years. We've standardized everything. And AI does the heavy lifting on our end too. What used to take weeks of custom work is now systematized. So it doesn't cost us a lot in time or resources to set you up. The $37 isn't me selling myself short. It's me pricing based on what it actually costs us to deliver.</p>
+    <h3 style="margin-top:20px">Reason 2: I'm playing a long game.</h3>
+    <p>I know that if driven people get past the startup barrier, they can have huge success. So I remove that barrier for $37. You get set up. You start making money. And when you're consistently doing $50K+ months, you'll get an invitation to apply for my Elite Private Circle - a closed-door group for the top 1% of operators. That's a five-figure investment. But you have to earn your way in first.</p>
+    <p>So yes, I want you to succeed. Because when you do, we both win later.</p>
+    <h3 style="margin-top:20px">What about other costs?</h3>
+    <p>You'll need a few tools to run the business. A domain name, email inboxes for the automated system, and a CRM. Monthly cost ranges from $220 to $440, depending on what level of outreach you want.</p>
+    <p>At the low end ($220/month), you're booking 5-10 calls a week. At the high end ($440/month), you're booking 20-30 calls a week.</p>
+    <p>To put that in perspective - one single client pays you $1,500-$2,500 per month. Your first client covers your tool costs with money left over. Your second client is pure profit.</p>
+    <p>These are costs you'd be paying no matter what, with any business. I'm just being upfront about it because I don't do hidden fees.</p>
   </section>
 
   <hr class="rule">
 
-  <!-- SECTION 8: WHAT'S INCLUDED -->
+  <!-- [SECTION 8: WHAT'S INCLUDED] -->
   <section>
     <p class="eyebrow">What's Included</p>
-    <h2>Everything you get for $37:</h2>
+    <h2>Here's everything you get for $37:</h2>
     <ul class="checks">
-      <li><b>Your entire AI business — built for you.</b> Full technical setup, outbound email systems, client-acquisition framework, calendar with text + email reminders. You touch none of it.</li>
-      <li><b>Proven sales scripts</b> that close $1,500–$2,500/mo deals — word-for-word, with objection handling. The same scripts my closers use daily.</li>
-      <li><b>Access to professional closers</b> (if you don't want to sell). They close 40%+; you pay 10% and keep the rest. Never pick up the phone.</li>
-      <li><b>AI-powered fulfillment systems.</b> Plug-and-play templates where AI does 90% of the work. You adjust the other 10% with step-by-step instructions.</li>
-      <li><b>Client management frameworks</b> to stay organized as you juggle 5, 10, 15 clients.</li>
-      <li><b>Quality control systems</b> — hands-off checks so clients always get the best results.</li>
-      <li><b>Scaling strategies</b> to push past $50K/month once the basics are running.</li>
+      <li><b>Your entire AI business - built for you.</b> We set up the complete technical infrastructure. Build your outbound email systems. Install your client acquisition framework. Hook everything up to your calendar with email and text reminders so prospects actually show up. You don't touch any of it.</li>
+      <li><b>Proven sales scripts that close $1,500-$2,500/month deals.</b> Word-for-word. Exactly what to say, how to handle objections, and how to close. These are the same scripts my closers use every day. Plus a simple objection handling framework that even non-salespeople can use to hit a 20%+ close rate.</li>
+      <li><b>Access to professional closers (if you don't want to sell).</b> We show you how to hire commission-only closers who take the sales calls for you. They close at 40%+ using our script. You pay them 10% of the deal and keep the rest. You never pick up the phone.</li>
+      <li><b>AI-powered fulfillment systems.</b> After you sign a client, you need to deliver results. We give you plug-and-play templates where AI does 90% of the work. You adjust the other 10% using our step-by-step instructions. Your clients get amazing results and keep paying month after month.</li>
+      <li><b>Client management frameworks.</b> When you start juggling 5, 10, 15 clients, you'll need to stay organized. We give you everything to manage it.</li>
+      <li><b>Quality control systems.</b> 100% hands-off quality checks to make sure your clients always get the best results.</li>
+      <li><b>Scaling strategies.</b> Once you've got the basics running, we show you how to push past $50K/month.</li>
     </ul>
   </section>
 
   <hr class="rule">
 
-  <!-- SECTION 9: GUARANTEE -->
+  <!-- [SECTION 9: THE GUARANTEE] -->
   <section>
     <div class="guar">
       <div class="seal"><span class="d">180</span><span class="u">DAYS</span></div>
-      <h2>My guarantee is simple.</h2>
-      <p>If you don't like what we build — for any reason — email <a href="mailto:support@teamair.life"><b>support@teamair.life</b></a> and get your $37 back. Instantly.</p>
-      <p>You have <span class="em">180 days</span> to decide. Six full months. Not 30 days. Not 60. <span class="em">180.</span></p>
-      <p>I'm not here to take anybody's money — I'm building a community of successful operators. If it's not for you, I'd rather refund you and part as friends. <b style="color:#fff">You risk nothing.</b></p>
+      <h2>Here's my guarantee, and it's simple.</h2>
+      <p>If you join and you don't like what we build for you - for any reason - email <a href="mailto:support@teamair.life">support@teamair.life</a> and get your $37 back. Instantly.</p>
+      <p>You have <span class="em">180 days</span> to decide. That's six full months.</p>
+      <p>Not 30 days. Not 60 days. <span class="em">180 days.</span></p>
+      <p>I'm not in this to take anybody's money. I'm in this to build a community of successful business owners. And if this isn't for you, I'd rather give you your money back and part as friends.</p>
+      <p style="margin-bottom:0">You risk nothing. That's not a sales line. That's just math. $37, fully refundable, for six months.</p>
     </div>
   </section>
 
-  <!-- CTA 5 -->
   <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      CLAIM MY SPOT — $37
-      <small>Fully Refundable For 180 Days ›</small>
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
     </a>
   </div>
 
   <hr class="rule">
 
-  <!-- SECTION 10: BINARY CLOSE -->
+  <!-- [SECTION 10: THE CHOICE] -->
   <section>
     <p class="eyebrow">The Choice</p>
-    <h2>You've got two options.</h2>
+    <p>So here's where we are.</p>
+    <p>I've explained what this is. I've shown you how it works. I've shown you real results from real people. And I've told you that if you don't like it, you get your money back.</p>
+    <p>Now you've got two options.</p>
     <div class="ch bad">
       <h3>✕ Option One</h3>
-      <p>You close this page and go back to scrolling. A year from now you're in the exact same spot — same routine, same income, same feeling you're stuck while everyone else figures it out. And the AI window? Smaller. The easy clients — taken.</p>
+      <p>You close this page. You go back to scrolling. You keep thinking about it. Maybe you tell yourself you'll come back later.</p>
+      <p>A year from now, you're in the exact same spot. Same routine. Same income. Same feeling that you're stuck while everyone else is figuring it out. And the AI window? It got smaller. More people got in. The easy clients got taken.</p>
     </div>
     <div class="ch good">
       <h3>✓ Option Two</h3>
-      <p>You put down $37 — less than dinner for two. My team builds your entire AI business. Three weeks from now, owners are booking calls on your calendar. You close them, or a closer does. Clients pay you $1,500–$2,500 every month. You're in the game.</p>
+      <p>You click the button. You put down $37 - less than dinner for two. My team builds your entire AI business. Three weeks from now, business owners are booking calls on your calendar. You close them yourself or a closer does it for you. Clients pay you $1,500-$2,500 every single month.</p>
+      <p>For the first time, you're not watching from the sidelines. You're in the game.</p>
     </div>
-    <p style="text-align:center;margin-top:16px"><b>We take 50 setups per month. When they fill, you wait.</b></p>
+    <p style="text-align:center;margin-top:16px"><b>We only take 50 new setups per month. When they fill, you wait until next month.</b></p>
   </section>
 
-  <!-- CTA 6 -->
   <div class="cta-wrap">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      I'M IN — BUILD IT FOR $37
-      <small>180-Day Money-Back Guarantee ›</small>
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
     </a>
   </div>
 
   <hr class="rule">
 
-  <!-- SECTION 11: FAQ -->
+  <!-- [SECTION 11: FAQs] -->
   <section>
-    <p class="eyebrow">FAQ</p>
-    <h2>Everything you might be wondering.</h2>
-    <details><summary>Do I need to buy anything else?</summary><div class="ans">No. The AIMA Accelerator is everything you need. No hidden upsells, no coaching bait. The $37 includes everything.</div></details>
-    <details><summary>What if I'm not good with computers?</summary><div class="ans">You don't need to be. We build everything for you. Students who can barely send an email are making this work because we handle all the tech.</div></details>
-    <details><summary>What if I can't sell?</summary><div class="ans">Use the word-for-word script — people with zero experience close with it. Or skip selling entirely and use our closers. You pay 10% and never get on the phone.</div></details>
-    <details><summary>How do clients end up on my calendar?</summary><div class="ans">An automated email system reaches thousands of business owners on your behalf. The interested ones click and book a time. Calls appear on your calendar automatically. You send nothing yourself.</div></details>
-    <details><summary>How do I deliver results? I'm not an AI expert.</summary><div class="ans">You don't need to be. Plug-and-play templates where AI does 90% of the work. You adjust the other 10% with simple instructions. Clients get great results and keep paying.</div></details>
-    <details><summary>What's the timeline?</summary><div class="ans"><b>Weekend 1:</b> training (~40 min/module) while we build everything. <b>Weeks 2–3:</b> your email system warms up automatically — you do nothing. <b>Week 3+:</b> emails go live, owners book calls, you start closing (or your closer does).</div></details>
-    <details><summary>What are the monthly tool costs?</summary><div class="ans">$220–$440/month for domain, email inboxes and a CRM. Costs you'd pay with any business — and your first client covers them entirely.</div></details>
-    <details><summary>Why $37 when others charge $10,000?</summary><div class="ans">Others give you information and say "figure it out." I build the whole thing for you — and it costs me almost nothing because AI does the heavy lifting on setup. I want driven people past the startup barrier.</div></details>
-    <details><summary>Do you help if I get stuck?</summary><div class="ans">Yes — a direct line to my team inside the program. I personally make sure your setup is solid. No hidden coaching fees.</div></details>
-    <details><summary>What if I don't like it?</summary><div class="ans">Get your $37 back. Email <a href="mailto:support@teamair.life">support@teamair.life</a> — instant refund, 180 days, no hassle.</div></details>
+    <p class="eyebrow">FAQs</p>
+    <details><summary>Do I need to buy anything else to make this work?</summary><div class="ans">No. The AIMA Accelerator is everything you need. This is not a starter program designed to sell you expensive coaching later. There are no hidden upsells. The $37 includes everything.</div></details>
+    <details><summary>What if I'm not good with computers?</summary><div class="ans">You don't need to be. We build everything for you. You don't set up any tech. Students who can barely send an email are making this work because we handle all the complicated stuff.</div></details>
+    <details><summary>What if I can't sell?</summary><div class="ans">Two options. Use the word-for-word script we give you - people with zero sales experience are closing deals with it. Or skip selling entirely and use our closers who take the calls for you. You pay them 10% of the deal. You never get on the phone.</div></details>
+    <details><summary>How do clients end up on my calendar?</summary><div class="ans">We set up an automated email system that reaches out to business owners on your behalf. Thousands of them. The interested ones click a link in the email and book a time to talk. Those calls show up on your calendar automatically. You don't send any emails yourself.</div></details>
+    <details><summary>How do I deliver results to clients? I'm not an AI expert.</summary><div class="ans">You don't need to be. We give you plug-and-play fulfillment templates where AI does 90% of the work. You adjust the other 10% using our simple instructions. Your clients get great results and that's why they keep paying month after month.</div></details>
+    <details><summary>What's the timeline?</summary><div class="ans">Weekend 1: You go through the training (about 40 minutes per module). We build everything. Weeks 2-3: Your email system warms up automatically. You do nothing. Week 3+: Emails go live. Business owners start booking calls. You start closing (or your closer does).</div></details>
+    <details><summary>What are the monthly tool costs?</summary><div class="ans">$220-$440/month for the software needed to run the business. Domain, email inboxes, CRM. These are costs you'd pay with any business. Your first client covers them entirely.</div></details>
+    <details><summary>Why is this only $37 when other programs charge $10,000?</summary><div class="ans">Because other programs give you information and say "figure it out." I build the whole thing for you. It costs me almost nothing because AI does the heavy lifting on setup. And I want to get driven people past the startup barrier so they can succeed - and eventually join my private mastermind at the top.</div></details>
+    <details><summary>Do you offer help if I get stuck?</summary><div class="ans">Yes. Inside the program there's a direct line to my team. I personally make sure your setup is solid. No hidden coaching fees.</div></details>
+    <details><summary>What if I don't like it?</summary><div class="ans">Get your $37 back. Email <a href="mailto:support@teamair.life">support@teamair.life</a>. We refund you instantly. You've got 180 days. No questions, no hassle.</div></details>
   </section>
+
+  <div class="cta-wrap">
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
+    </a>
+  </div>
 
   <hr class="rule">
 
-  <!-- SECTION 12: RECAP -->
+  <!-- [SECTION 12: FINAL RECAP] -->
   <section>
-    <p class="eyebrow">The Recap</p>
-    <h2>The whole thing, one more time.</h2>
+    <p class="eyebrow">Final Recap</p>
     <ul class="recap">
       <li>One weekend to go through the material.</li>
       <li>We build everything.</li>
       <li>Clients start booking calls within 3 weeks.</li>
-      <li>You take the calls with our script — or a closer does.</li>
-      <li>Clients pay you $1,500–$2,500 every single month.</li>
-      <li>$37 to start. 180-day money-back guarantee.</li>
-      <li>Not happy? Email support@teamair.life — refunded immediately.</li>
+      <li>You take the calls using our script - or a closer takes them for you.</li>
+      <li>Clients pay you $1,500-$2,500 every single month.</li>
+      <li>$37 to get started. 180-day money-back guarantee.</li>
+      <li>If you're not happy at any point, email support@teamair.life and we'll refund you immediately.</li>
     </ul>
     <p class="final">Nothing to lose. Everything to gain.</p>
   </section>
 
-  <!-- CTA 7 -->
   <div class="cta-wrap" style="padding-bottom:26px">
-    <a class="cta" href="https://www.aima-systems.com/payment-b">
-      GET THE AIMA ACCELERATOR — $37
-      <small>Backed By A 180-Day Guarantee ›</small>
+    <a class="cta" href="https://www.aima-systems.com">
+      &gt;&gt; Get The AIMA Accelerator Now - $37
+      <small>Backed By 180-Day Guarantee</small>
     </a>
-    <div class="stars" style="margin-top:12px">★★★★★</div>
-    <div class="rating">4.9/5 · 3,000+ students · 50 spots/month</div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- [LEGAL & DISCLOSURES] -->
   <footer>
-    <p class="cc">Copyright 2026 Teamair.life &nbsp;|&nbsp; <a href="https://www.aima-systems.com/legal">Terms</a> / <a href="https://www.aima-systems.com/legal">Privacy Policy</a></p>
+    <p class="cc">Copyright 2026 Teamair.life &nbsp;|&nbsp; <a href="https://www.aima-systems.com">Terms &amp; Conditions</a> / <a href="https://www.aima-systems.com">Privacy Policy</a></p>
     <h4>Seller's Information</h4>
-    <p>Levent Enterprises LLC d/b/a TeamAir.Life · 2106 House Ave Suite 482, Cheyenne, WY 82001, USA · (307) 403-0168 · <a href="mailto:info@teamair.life">info@teamair.life</a></p>
+    <p>Levent Enterprises LLC d/b/a TeamAir.Life. Registered Address: 2106 House Ave Suite 482, Cheyenne, WY 82001, USA. Phone: (307) 403-0168 | Email: <a href="mailto:info@teamair.life">info@teamair.life</a></p>
     <h4>Earnings Disclaimer</h4>
     <p>Results shown are from the owner's personal experience and select student results. There is no guarantee of specific outcomes. Individual success depends on many factors including effort, market conditions, and implementation. These results are not typical.</p>
-    <h4>Cancellation / Refund</h4>
-    <p>The $37 fee is refundable at any time within 180 days. Refunds issued to the original payment method within five business days. Third-party tool subscriptions have separate cancellation policies.</p>
+    <h4>Cancellation/Refund</h4>
+    <p>The $37 fee is refundable at any time within 180 days. Refunds issued to original payment method within five business days. Third-party tool subscriptions have separate cancellation policies.</p>
     <h4>FTC Business Opportunity Rule</h4>
-    <p>The AIMA Accelerator may be considered a business opportunity under FTC regulations. Disclosure documents available upon request by emailing <a href="mailto:info@teamair.life">info@teamair.life</a>. California residents: additional disclosures available upon request. A list of at least 10 recent purchasers who agreed to serve as references is available on written request.</p>
+    <p>The AIMA Accelerator may be considered a business opportunity under FTC regulations. Disclosure documents are available upon request by emailing <a href="mailto:info@teamair.life">info@teamair.life</a>. California residents: additional disclosures available upon request.</p>
+    <p>A list of at least 10 recent purchasers who have agreed to serve as references is available upon written request by emailing <a href="mailto:info@teamair.life">info@teamair.life</a>.</p>
   </footer>
 
 </div>
-
-<script>
-  // Simple CF-style urgency countdown (visual only, resets each load)
-  (function(){
-    var el=document.getElementById('cd');
-    if(!el)return;
-    var t=15*60; // 15:00
-    function tick(){
-      if(t<=0){t=15*60;}
-      var m=Math.floor(t/60), s=t%60;
-      el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-      t--;
-    }
-    tick();
-    setInterval(tick,1000);
-  })();
-</script>
 </body>
 </html>
