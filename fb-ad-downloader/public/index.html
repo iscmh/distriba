@@ -34,7 +34,7 @@
   }
   input {
     flex: 1; background: transparent; border: 0; outline: 0; color: var(--text);
-    font-size: 15px; padding: 12px 14px; min-width: 0;
+    font-size: 16px; padding: 12px 14px; min-width: 0;
   }
   input::placeholder { color: #5c667e; }
   button {
@@ -69,6 +69,16 @@
   .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.3);
     border-top-color: #fff; border-radius: 50%; animation: sp .7s linear infinite; vertical-align: -2px; }
   @keyframes sp { to { transform: rotate(360deg); } }
+
+  @media (max-width: 620px) {
+    body { padding: 28px 14px 60px; }
+    h1 { font-size: 22px; }
+    form { flex-direction: column; gap: 8px; }
+    button, a.dl { width: 100%; text-align: center; padding: 14px 16px; }
+    .actions { flex-direction: column; align-items: stretch; }
+    .actions .spacer { display: none; }
+    video { max-height: 60vh; }
+  }
 </style>
 </head>
 <body>

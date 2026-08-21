@@ -1,0 +1,18 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Deploys the ad downloader as an always-on web service.
+services:
+  - type: web
+    name: fb-ad-downloader
+    runtime: node
+    plan: free
+    rootDir: fb-ad-downloader
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      # Set this in the Render dashboard — without it the app is open to anyone.
+      - key: ACCESS_PASSWORD
+        sync: false
+      # Optional: cookie header from a logged-in facebook.com request.
+      - key: FB_COOKIE
+        sync: false

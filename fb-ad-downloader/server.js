@@ -7,7 +7,9 @@
  *   GET  /api/stream?u=&name=  proxies the fbcdn bytes (download or preview)
  */
 import http from 'node:http';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { Readable } from 'node:stream';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +19,54 @@ import { resolveAd, isAllowedMediaUrl, suggestFilename, UA } from './src/extract
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(HERE, 'public');
 const PORT = Number(process.env.PORT || 4321);
+const HOST = process.env.HOST || '0.0.0.0';
+
+/**
+ * Optional shared password. Unset (the normal local case) means no gate; set it
+ * whenever the server is reachable from the internet, so the download proxy is
+ * not left open to whoever finds the URL.
+ */
+const PASSWORD = process.env.ACCESS_PASSWORD || '';
+const COOKIE = 'fbdl_auth';
+const TOKEN = PASSWORD
+  ? crypto.createHash('sha256').update(`fbdl:${PASSWORD}`).digest('hex')
+  : '';
+
+function sameSecret(a, b) {
+  const left = Buffer.from(String(a));
+  const right = Buffer.from(String(b));
+  // timingSafeEqual throws on length mismatch, so compare lengths separately.
+  return left.length === right.length && crypto.timingSafeEqual(left, right);
+}
+
+function cookieValue(header, name) {
+  for (const part of String(header || '').split(';')) {
+    const [key, ...rest] = part.trim().split('=');
+    if (key === name) return rest.join('=');
+  }
+  return null;
+}
+
+function isAuthed(req, url) {
+  if (!PASSWORD) return true;
+  const supplied = url.searchParams.get('key');
+  if (supplied && sameSecret(supplied, PASSWORD)) return true;
+  const cookie = cookieValue(req.headers.cookie, COOKIE);
+  return Boolean(cookie) && sameSecret(cookie, TOKEN);
+}
+
+const LOGIN_PAGE = `<!DOCTYPE html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Sign in</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0d12;color:#e8ecf5;
+font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+form{background:#141821;border:1px solid #262d3d;border-radius:14px;padding:24px;width:min(340px,90vw)}
+h1{font-size:18px;margin:0 0 14px}input{width:100%;padding:12px;border-radius:10px;border:1px solid #262d3d;
+background:#0b0d12;color:#e8ecf5;font-size:16px;margin-bottom:10px}
+button{width:100%;padding:12px;border:0;border-radius:10px;background:#4a8cff;color:#fff;font-size:15px;
+font-weight:600}p{color:#8b95ab;font-size:13px;margin:12px 0 0}</style>
+<form method="GET" action="/"><h1>Ad downloader</h1>
+<input type="password" name="key" placeholder="Password" autofocus>
+<button type="submit">Unlock</button><p>Set by ACCESS_PASSWORD on the server.</p></form>`;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -152,6 +202,33 @@ async function handleStream(req, res, url) {
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
 
+  // Unauthenticated so hosting platforms can health-check the app.
+  if (url.pathname === '/healthz') {
+    res.writeHead(200, { 'content-type': 'text/plain' }).end('ok');
+    return;
+  }
+
+  if (!isAuthed(req, url)) {
+    if (url.pathname.startsWith('/api/')) {
+      sendJson(res, 401, { error: 'Not authorised. Open the app and enter the password.' });
+      return;
+    }
+    res.writeHead(401, { 'content-type': 'text/html; charset=utf-8' }).end(LOGIN_PAGE);
+    return;
+  }
+
+  // A correct ?key= is exchanged for a cookie, so the secret leaves the URL bar.
+  if (PASSWORD && url.searchParams.get('key')) {
+    const secure = (req.headers['x-forwarded-proto'] || '').includes('https') ? '; Secure' : '';
+    url.searchParams.delete('key');
+    res.writeHead(302, {
+      'set-cookie': `${COOKIE}=${TOKEN}; Path=/; Max-Age=2592000; HttpOnly; SameSite=Lax${secure}`,
+      location: url.pathname + (url.search || ''),
+    });
+    res.end();
+    return;
+  }
+
   if (req.method === 'POST' && url.pathname === '/api/resolve') return void handleResolve(req, res);
   if (req.method === 'GET' && url.pathname === '/api/stream') return void handleStream(req, res, url);
   if (req.method === 'GET') return void serveStatic(req, res, url.pathname);
@@ -159,6 +236,19 @@ const server = http.createServer((req, res) => {
   res.writeHead(405, { 'content-type': 'text/plain' }).end('Method not allowed');
 });
 
-server.listen(PORT, () => {
-  console.log(`\n  Facebook ad video downloader running at http://localhost:${PORT}\n`);
+function lanAddress() {
+  for (const entries of Object.values(os.networkInterfaces())) {
+    for (const net of entries || []) {
+      if (net.family === 'IPv4' && !net.internal) return net.address;
+    }
+  }
+  return null;
+}
+
+server.listen(PORT, HOST, () => {
+  const lan = lanAddress();
+  console.log(`\n  Facebook ad video downloader`);
+  console.log(`    this computer   http://localhost:${PORT}`);
+  if (lan) console.log(`    same wi-fi      http://${lan}:${PORT}   <- open this on your phone`);
+  console.log(PASSWORD ? '    password gate   on\n' : '    password gate   off (set ACCESS_PASSWORD before exposing this)\n');
 });
